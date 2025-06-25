@@ -30,8 +30,8 @@ class UserTest < ActiveSupport::TestCase
   test "usuário pode ser matriculado em várias disciplinas" do
     user = User.create(name: "Teste Usuário", email: "teste@exemplo.com", password: "senha123", password_confirmation: "senha123")
     professor = Professor.create(name: "Professor Teste", specialization: "Computação")
-    discipline1 = Discipline.create(name: "Disciplina 1", code: "DISC01", description: "Descrição 1", credits: 4, professor: professor)
-    discipline2 = Discipline.create(name: "Disciplina 2", code: "DISC02", description: "Descrição 2", credits: 4, professor: professor)
+    discipline1 = Discipline.create(name: "Disciplina 1", code: "DISC01", description: "Descrição 1", horas: 4, professor: professor)
+    discipline2 = Discipline.create(name: "Disciplina 2", code: "DISC02", description: "Descrição 2", horas: 4, professor: professor)
     
     user.disciplines << discipline1
     user.disciplines << discipline2

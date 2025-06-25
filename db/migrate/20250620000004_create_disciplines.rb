@@ -4,7 +4,7 @@ class CreateDisciplines < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :code, null: false
       t.text :description
-      t.integer :credits
+      t.integer :horas
       t.references :professor, null: false, foreign_key: true
 
       t.timestamps

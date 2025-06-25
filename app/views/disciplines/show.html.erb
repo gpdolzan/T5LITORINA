@@ -4,7 +4,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= @discipline.code %> - <%= @discipline.name %></h5>
     <p><strong>Descrição:</strong> <%= @discipline.description %></p>
-    <p><strong>Créditos:</strong> <%= @discipline.credits %></p>
+    <p><strong>Horas:</strong> <%= @discipline.horas %></p>
     <p><strong>Professor:</strong> <%= link_to @discipline.professor.name, professor_path(@discipline.professor) %></p>
     <p><strong>Sala:</strong> <%= @discipline.professor.room ? @discipline.professor.room.number : "Não atribuída" %></p>
   </div>

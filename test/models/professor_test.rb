@@ -26,8 +26,8 @@ class ProfessorTest < ActiveSupport::TestCase
 
   test "professor pode ter várias disciplinas" do
     professor = Professor.create(name: "Professor Teste", specialization: "Computação")
-    discipline1 = Discipline.create(name: "Disciplina 1", code: "DISC01", description: "Descrição 1", credits: 4, professor: professor)
-    discipline2 = Discipline.create(name: "Disciplina 2", code: "DISC02", description: "Descrição 2", credits: 4, professor: professor)
+    discipline1 = Discipline.create(name: "Disciplina 1", code: "DISC01", description: "Descrição 1", horas: 4, professor: professor)
+    discipline2 = Discipline.create(name: "Disciplina 2", code: "DISC02", description: "Descrição 2", horas: 4, professor: professor)
     
     professor.reload
     assert_equal 2, professor.disciplines.count
@@ -35,7 +35,7 @@ class ProfessorTest < ActiveSupport::TestCase
 
   test "excluir professor deve excluir suas disciplinas" do
     professor = Professor.create(name: "Professor Teste", specialization: "Computação")
-    discipline = Discipline.create(name: "Disciplina Teste", code: "DISC-T", description: "Descrição Teste", credits: 4, professor: professor)
+    discipline = Discipline.create(name: "Disciplina Teste", code: "DISC-T", description: "Descrição Teste", horas: 4, professor: professor)
     
     assert_difference 'Discipline.count', -1 do
       professor.destroy

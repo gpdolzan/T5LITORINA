@@ -74,7 +74,7 @@ discipline1 = Discipline.create!(
   name: 'Programação Orientada a Objetos',
   code: 'CI101',
   description: 'Introdução aos conceitos de programação orientada a objetos utilizando Java.',
-  credits: 4,
+  horas: 60,
   professor: professor1
 )
 
@@ -82,7 +82,7 @@ discipline2 = Discipline.create!(
   name: 'Estruturas de Dados',
   code: 'CI201',
   description: 'Estudo das principais estruturas de dados e suas aplicações.',
-  credits: 4,
+  horas: 60,
   professor: professor1
 )
 
@@ -90,7 +90,7 @@ discipline3 = Discipline.create!(
   name: 'Engenharia de Software',
   code: 'CI301',
   description: 'Princípios e práticas de engenharia de software e gerenciamento de projetos.',
-  credits: 4,
+  horas: 60,
   professor: professor2
 )
 
@@ -98,7 +98,7 @@ discipline4 = Discipline.create!(
   name: 'Banco de Dados',
   code: 'CI202',
   description: 'Modelagem e implementação de bancos de dados relacionais.',
-  credits: 4,
+  horas: 60,
   professor: professor3
 )
 

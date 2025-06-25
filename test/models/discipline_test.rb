@@ -10,7 +10,7 @@ class DisciplineTest < ActiveSupport::TestCase
       name: "Disciplina Teste", 
       code: "DISC-T", 
       description: "Descrição da disciplina", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     assert discipline.valid?
@@ -20,7 +20,7 @@ class DisciplineTest < ActiveSupport::TestCase
     discipline = Discipline.new(
       code: "DISC-T", 
       description: "Descrição da disciplina", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     assert_not discipline.valid?
@@ -30,7 +30,7 @@ class DisciplineTest < ActiveSupport::TestCase
     discipline = Discipline.new(
       name: "Disciplina Teste", 
       description: "Descrição da disciplina", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     assert_not discipline.valid?
@@ -41,7 +41,7 @@ class DisciplineTest < ActiveSupport::TestCase
       name: "Disciplina 1", 
       code: "DISC-T", 
       description: "Descrição 1", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     
@@ -49,7 +49,7 @@ class DisciplineTest < ActiveSupport::TestCase
       name: "Disciplina 2", 
       code: "DISC-T", 
       description: "Descrição 2", 
-      credits: 3, 
+      horas: 3, 
       professor: @professor
     )
     
@@ -60,7 +60,7 @@ class DisciplineTest < ActiveSupport::TestCase
     discipline = Discipline.new(
       name: "Disciplina Teste", 
       code: "DISC-T", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     assert_not discipline.valid?
@@ -71,7 +71,7 @@ class DisciplineTest < ActiveSupport::TestCase
       name: "Disciplina Teste", 
       code: "DISC-T", 
       description: "Descrição da disciplina", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     
@@ -83,7 +83,7 @@ class DisciplineTest < ActiveSupport::TestCase
       name: "Disciplina Teste", 
       code: "DISC-T", 
       description: "Descrição da disciplina", 
-      credits: 4, 
+      horas: 4, 
       professor: @professor
     )
     
