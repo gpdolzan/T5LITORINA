@@ -1,0 +1,21 @@
+# Disciplinas para testes
+programacao:
+  name: Programação Orientada a Objetos
+  code: CI1068
+  description: Introdução à programação orientada a objetos usando Java
+  credits: 4
+  professor: professor_computacao
+
+algoritmos:
+  name: Algoritmos e Estruturas de Dados I
+  code: CI1055
+  description: Introdução a algoritmos e estruturas de dados básicas
+  credits: 4
+  professor: professor_computacao
+
+calculo:
+  name: Cálculo Diferencial e Integral I
+  code: CM304
+  description: Introdução ao cálculo
+  credits: 6
+  professor: professor_matematica

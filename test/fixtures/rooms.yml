@@ -1,0 +1,12 @@
+# Salas para testes
+sala_101:
+  number: "101"
+  building: Bloco A
+  capacity: 30
+  professor: professor_computacao
+
+sala_102:
+  number: "102"
+  building: Bloco B
+  capacity: 25
+  professor: professor_matematica

@@ -1,0 +1,55 @@
+<div class="jumbotron">
+  <h1 class="display-4">Bem-vindo ao FAKE SIGA UFPR</h1>
+  <p class="lead">Sistema de Gestão Acadêmica da UFPR (versão simulada)</p>
+  <hr class="my-4">
+  <% if logged_in? %>
+    <p>Você está conectado como <%= current_user.name %>.</p>
+    <% if admin? %>
+      <p>Como administrador, você pode gerenciar todos os aspectos do sistema.</p>
+    <% else %>
+      <p>Você pode visualizar disciplinas, professores e salas de aula.</p>
+    <% end %>
+  <% else %>
+    <p>Por favor, faça login para acessar o sistema.</p>
+    <a class="btn btn-primary btn-lg" href="<%= login_path %>" role="button">Entrar</a>
+  <% end %>
+</div>
+
+<% if logged_in? %>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Disciplinas</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Visualize todas as disciplinas disponíveis.</p>
+          <a href="<%= disciplines_path %>" class="btn btn-primary">Ir para Disciplinas</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Professores</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Visualize todos os professores do sistema.</p>
+          <a href="<%= professors_path %>" class="btn btn-primary">Ir para Professores</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Salas</h5>
+        </div>
+        <div class="card-body">          <p class="card-text">Visualize todas as salas de aula e suas atribuições.</p>
+          <a href="<%= rooms_path %>" class="btn btn-primary">Ir para Salas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

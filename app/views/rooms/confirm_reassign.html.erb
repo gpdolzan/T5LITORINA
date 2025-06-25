@@ -1,0 +1,37 @@
+<%= content_for :title do %>
+  Confirmar Reatribuição de Sala
+<% end %>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-warning">
+      <h2>Confirmação Necessária</h2>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-warning">
+        <p><strong>Atenção:</strong> O professor <strong><%= @professor.name %></strong> já está vinculado à sala <strong><%= @current_room.number %></strong> (<%= @current_room.building %>).</p>
+        
+        <p>Você deseja realmente:</p>
+        <ul>
+          <% if @is_update %>
+            <li>Desvincular o professor <strong><%= @professor.name %></strong> da sala <strong><%= @current_room.number %></strong></li>
+            <li>Vincular o professor <strong><%= @professor.name %></strong> à sala <strong><%= @room.number %></strong></li>
+          <% else %>
+            <li>Desvincular o professor <strong><%= @professor.name %></strong> da sala <strong><%= @current_room.number %></strong></li>
+            <li>Vincular o professor <strong><%= @professor.name %></strong> à nova sala</li>
+          <% end %>
+        </ul>
+      </div>
+      
+      <div class="d-flex justify-content-between mt-4">
+        <% if @is_update %>
+          <%= button_to "Cancelar", room_path(@room), method: :get, class: "btn btn-secondary" %>
+          <%= button_to "Confirmar Transferência", room_path(@room), method: :patch, params: { room: session[:pending_room_update], confirmed: true }, class: "btn btn-warning" %>
+        <% else %>
+          <%= button_to "Cancelar", rooms_path, method: :get, class: "btn btn-secondary" %>
+          <%= button_to "Confirmar Transferência", rooms_path, method: :post, params: { room: session[:pending_room], confirmed: true }, class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

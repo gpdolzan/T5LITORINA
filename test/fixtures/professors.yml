@@ -1,0 +1,8 @@
+# Professores para testes
+professor_computacao:
+  name: Professor de Computação
+  specialization: Ciência da Computação
+
+professor_matematica:
+  name: Professor de Matemática
+  specialization: Matemática Aplicada

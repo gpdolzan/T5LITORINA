@@ -1,0 +1,12 @@
+# Usuários para testes
+admin:
+  name: Administrador Teste
+  email: admin@teste.com
+  password_digest: <%= BCrypt::Password.create('admin123') %>
+  role: 1
+
+aluno:
+  name: Aluno Teste
+  email: aluno@teste.com
+  password_digest: <%= BCrypt::Password.create('aluno123') %>
+  role: 0

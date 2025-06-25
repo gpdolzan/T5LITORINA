@@ -1,0 +1,52 @@
+<h1>Detalhes do Professor</h1>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= @professor.name %></h5>
+    <p><strong>Especialização:</strong> <%= @professor.specialization %></p>
+    <p><strong>Email:</strong> <%= @professor.email %></p>
+    <p><strong>Telefone:</strong> <%= @professor.phone %></p>
+    <p><strong>Sala:</strong> <%= @professor.room ? @professor.room.number : "Não atribuída" %></p>
+  </div>
+</div>
+
+<% if @professor.disciplines.any? %>
+  <h2>Disciplinas Lecionadas</h2>
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Alunos</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @professor.disciplines.each do |discipline| %>
+            <tr>
+              <td><%= discipline.code %></td>
+              <td><%= discipline.name %></td>              <td><%= discipline.users.count %></td>
+              <td>
+                <%= link_to "Visualizar", discipline_path(discipline), class: "btn btn-sm btn-info" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <div class="alert alert-info">
+    Este professor não está lecionando nenhuma disciplina.
+  </div>
+<% end %>
+
+<div class="mt-3">
+  <%= link_to "Voltar", professors_path, class: "btn btn-secondary" %>
+  <% if admin? %>
+    <%= link_to "Editar", edit_professor_path(@professor), class: "btn btn-warning" %>
+    <%= button_to "Excluir", professor_path(@professor), method: :delete, form: { data: { turbo_confirm: "Tem certeza?" }, style: "display:inline-block;" }, class: "btn btn-danger" %>
+  <% end %>
+</div>

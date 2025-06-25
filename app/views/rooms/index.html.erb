@@ -1,0 +1,36 @@
+<h1>Salas</h1>
+
+<div class="mb-3">
+  <%= link_to "Nova Sala", new_room_path, class: "btn btn-primary" if admin? %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Prédio</th>
+          <th>Capacidade</th>
+          <th>Atribuída a</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.number %></td>
+            <td><%= room.building %></td>
+            <td><%= room.capacity %></td>            <td><%= room.professor ? room.professor.name : "Não atribuída" %></td>
+            <td>
+              <%= link_to "Visualizar", room_path(room), class: "btn btn-sm btn-info" %>
+              <% if admin? %>                <%= link_to "Editar", edit_room_path(room), class: "btn btn-sm btn-warning" %>
+                <%= button_to "Excluir", room_path(room), method: :delete, form: { data: { turbo_confirm: "Tem certeza?" }, style: "display:inline-block;" }, class: "btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

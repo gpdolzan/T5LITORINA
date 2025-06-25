@@ -1,0 +1,47 @@
+<h1>Edit Professor</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with(model: @professor, local: true) do |f| %>
+          <% if @professor.errors.any? %>
+            <div class="alert alert-danger">
+              <h2><%= pluralize(@professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+              <ul>
+                <% @professor.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= f.label :name, class: "form-label" %>
+            <%= f.text_field :name, class: "form-control", required: true %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :specialization, class: "form-label" %>
+            <%= f.text_field :specialization, class: "form-control", required: true %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :phone, class: "form-label" %>
+            <%= f.text_field :phone, class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update Professor", class: "btn btn-primary" %>
+            <%= link_to "Back", professors_path, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<h1>Disciplinas</h1>
+
+<div class="mb-3">
+  <%= link_to "Nova Disciplina", new_discipline_path, class: "btn btn-primary" if admin? %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Professor</th>
+          <th>Alunos Matriculados</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @disciplines.each do |discipline| %>
+          <tr>
+            <td><%= discipline.code %></td>
+            <td><%= discipline.name %></td>            <td><%= discipline.professor ? discipline.professor.name : "Não atribuído" %></td>
+            <td><%= discipline.users.count %></td>
+            <td>
+              <%= link_to "Visualizar", discipline_path(discipline), class: "btn btn-sm btn-info" %>
+              <% if admin? %>                <%= link_to "Editar", edit_discipline_path(discipline), class: "btn btn-sm btn-warning" %>
+                <%= button_to "Excluir", discipline_path(discipline), method: :delete, form: { data: { turbo_confirm: "Tem certeza?" }, style: "display:inline-block;" }, class: "btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
